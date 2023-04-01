@@ -9,7 +9,7 @@ languages = ['ru', 'en', 'de', 'es']
 
 class OnnxWrapper():
 
-    def __init__(self, path, force_onnx_cpu=False):
+    def __init__(self, path, force_onnx_cpu=True):
         import numpy as np
         global np
         import onnxruntime
@@ -144,7 +144,7 @@ def save_audio(path: str,
 
 
 def init_jit_model(model_path: str,
-                   device=torch.device('cpu')):
+                   device=torch.device('cuda')):
     torch.set_grad_enabled(False)
     model = torch.jit.load(model_path, map_location=device)
     model.eval()
