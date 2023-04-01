@@ -21,7 +21,7 @@ class OnnxWrapper():
         if force_onnx_cpu and 'CPUExecutionProvider' in onnxruntime.get_available_providers():
             self.session = onnxruntime.InferenceSession(path, providers=['CPUExecutionProvider'], sess_options=opts)
         else:
-            self.session = onnxruntime.InferenceSession(path, sess_options=opts)
+            self.session = onnxruntime.InferenceSession(path, providers=['CUDAExecutionProvider'], sess_options=opts)
 
         self.reset_states()
         self.sample_rates = [8000, 16000]
