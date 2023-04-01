@@ -9,7 +9,7 @@ languages = ['ru', 'en', 'de', 'es']
 
 class OnnxWrapper():
 
-    def __init__(self, path, force_onnx_cpu=True):
+    def __init__(self, path, force_onnx_cpu=False):
         import numpy as np
         global np
         import onnxruntime
