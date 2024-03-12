@@ -144,7 +144,7 @@ def save_audio(path: str,
 
 
 def init_jit_model(model_path: str,
-                   device=torch.device('cuda')):
+                   device=torch.device('cuda:0')):
     torch.set_grad_enabled(False)
     model = torch.jit.load(model_path, map_location=device)
     model.eval()
